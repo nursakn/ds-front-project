@@ -1,0 +1,11 @@
+.product-item {
+  border: 1px solid lightgreen;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-item__image {
+  height: 150px;
+  width: 150px;
+}

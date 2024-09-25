@@ -1,0 +1,5 @@
+<a class="product-item" [routerLink]="['product/', product.id]">
+  <img [ngSrc]="product.image" [alt]="product.name" width="150" height="150" />
+  {{ product.name }}
+  <ng-content select="[product-item-action]" />
+</a>
