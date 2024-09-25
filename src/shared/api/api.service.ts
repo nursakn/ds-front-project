@@ -1,4 +1,4 @@
-import {Observable} from "rxjs";
+import {Observable, of, timeout} from "rxjs";
 import {Injectable} from "@angular/core";
 
 @Injectable({
@@ -6,11 +6,8 @@ import {Injectable} from "@angular/core";
 })
 export class ApiService {
   get<T>(data: T): Observable<T> {
-    return new Observable<T>(subscriber => {
-      setTimeout(() => {
-        subscriber.next(data);
-        subscriber.complete();
-      }, 1000)
-    });
+    return of(data).pipe(
+      timeout(1000)
+    );
   }
 }

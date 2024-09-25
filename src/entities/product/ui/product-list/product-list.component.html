@@ -1,17 +1,11 @@
 <div>
-  <ng-content select="[product-list-filters-before]" />
-  <ng-content select="[product-list-filters]" />
-  <ng-content select="[product-list-filters-after]" />
+  <ng-container [ngTemplateOutlet]="productListHeader" />
 
   <div class="product-list">
-    <app-product-item *ngFor="let product of products" [product]="product">
-      <ng-container ngProjectAs="[product-item-action]">
-        <ng-content select="[product-item-action]" />
-      </ng-container>
-    </app-product-item>
+    @for (product of products; track product.id) {
+      <ng-container [ngTemplateOutlet]="productItem" [ngTemplateOutletContext]="{ product }" />
+    }
   </div>
 
-  <ng-content select="[product-list-pagination-before]" />
-  <ng-content select="[product-list-pagination]" />
-  <ng-content select="[product-list-pagination-after]" />
+  <ng-container [ngTemplateOutlet]="productListFooter" />
 </div>

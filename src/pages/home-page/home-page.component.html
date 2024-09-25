@@ -1,7 +1,11 @@
 <app-product-list [products]="products">
-  <div product-list-filters>
-    filters
-  </div>
-
-  <button product-item-action>action</button>
+  <ng-template #productListHeader>Header</ng-template>
+  <ng-template #productItem let-product="product">
+    <app-product-item [product]="product">
+      <ng-template #productItemAction>
+        <button (click)="addToCart(product)">Add to cart</button>
+      </ng-template>
+    </app-product-item>
+  </ng-template>
+  <ng-template #productListFooter>Footer</ng-template>
 </app-product-list>

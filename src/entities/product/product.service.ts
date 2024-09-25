@@ -2,10 +2,8 @@ import {Injectable} from "@angular/core";
 import {ApiService} from "../../shared/api/api.service";
 import {ProductList} from "./product.model";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ProductsService {
+@Injectable()
+export class ProductService {
   constructor(private httpClient: ApiService) {}
 
   getProducts() {
